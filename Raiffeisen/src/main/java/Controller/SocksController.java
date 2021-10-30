@@ -1,5 +1,7 @@
 package Controller;
 
+import Repository.SocksRepository;
+import Service.SocksService;
 import org.apache.juli.logging.Log;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,15 @@ import java.util.List;
 @RestController
 public class SocksController {
     private List<String> socks;
+    private final SocksService socksService;
+    private SocksRepository socksRepository;
+
+    public SocksController(){
+        socksService= new SocksService();
+    }
+    public SocksRepository(){
+        socksRepository= new SocksRepository();
+    }
     @GetMapping("/api/socks")
     public String getCountSocks(
             @RequestParam(value = "color") String color,
@@ -30,7 +41,6 @@ public class SocksController {
             @RequestParam(value = "color") String color,
             @RequestParam(value= "cottonPart") String cottonPart,
             @RequestParam(value= "quantity") String quantity ) {
-
         ResponseEntity<String> responseEntity= new ResponseEntity<String>(HttpStatus.OK);
 
         return responseEntity;
