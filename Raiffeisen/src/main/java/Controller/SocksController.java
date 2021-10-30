@@ -1,5 +1,6 @@
 package Controller;
 
+import org.apache.juli.logging.Log;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,19 +23,16 @@ public class SocksController {
             @RequestParam(value = "color") String color,
             @RequestParam(value= "cottonPart") String cottonPart,
             @RequestParam(value= "quantity") String quantity ) {
-        final boolean addSocks = socks.add(color);
-        return addSocks
-                ? new ResponseEntity<String>(HttpStatus.OK)
-                : new ResponseEntity<String>(HttpStatus.NOT_MODIFIED);
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
     @PutMapping("/api/socks/outcome")
     public ResponseEntity<?> postOutcomeSocks(
             @RequestParam(value = "color") String color,
             @RequestParam(value= "cottonPart") String cottonPart,
             @RequestParam(value= "quantity") String quantity ) {
-        final boolean addSocks = socks.add(color);
-        return addSocks
-                ? new ResponseEntity<String>(HttpStatus.OK)
-                : new ResponseEntity<String>(HttpStatus.NOT_MODIFIED);
+
+        ResponseEntity<String> responseEntity= new ResponseEntity<String>(HttpStatus.OK);
+
+        return responseEntity;
     }
 }
