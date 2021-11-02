@@ -1,4 +1,4 @@
-package Model;
+package com.example.Raiffeisen.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,14 +9,14 @@ import javax.persistence.Id;
 public class Socks {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private long id;
     private String color;
-    private String cottonPart;
-    private String quantityPairs;
+    private int cottonPart;
+    private int quantityPairs;
 
-    public Integer getId() {return id;}
+    public long getId() {return id;}
 
-    public void setId(Integer id) {this.id = id;}
+    public void setId(long id) {this.id = id;}
 
     public String getColor() {
         return color;
@@ -26,21 +26,23 @@ public class Socks {
         this.color = color;
     }
 
-    public String getCottonPart() {
+    public int getCottonPart() {
         return cottonPart;
     }
 
-    public void setCottonPart(String cottonPart) {
+    public void setCottonPart(int cottonPart) {
         this.cottonPart = cottonPart;
     }
 
-    public String getQuantityPairs() {return quantityPairs;}
+    public int getQuantityPairs() {return quantityPairs;}
 
-    public void setQuantityPairs(String quantityPairs) {this.quantityPairs = quantityPairs;}
+    public void setQuantityPairs(int quantityPairs) {this.quantityPairs = quantityPairs;}
 
-    public Socks(String color, String cottonPart , String quantityPairs){
+    public Socks(String color, int cottonPart , int quantityPairs){
         this.color= color;
         this.cottonPart= cottonPart;
         this.quantityPairs=quantityPairs;
+    }
+    public Socks(){
     }
 }
